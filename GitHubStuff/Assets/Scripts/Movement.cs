@@ -16,7 +16,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D)) rb.velocity = Vector2.right * speed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A)) rb.velocity = Vector2.left * speed * Time.deltaTime;
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.D)) rb.velocity = new Vector2(speed, rb.velocity.y);
+        if (Input.GetKey(KeyCode.A)) rb.velocity = new Vector2(-speed, rb.velocity.y);
     }
 }
